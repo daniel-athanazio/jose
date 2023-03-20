@@ -36,17 +36,17 @@ public class Usuario {
                         break;
                     case 3:
                         System.out.println("--Recarregar Bilhete--");
-                        input.nextLine(); // Limpa o buffer do Scanner
+                        input.nextLine();
                         System.out.println("Informe o codigo de seu bilhete");
                         String codigoBilhete = input.nextLine();
-                        BilheteUnico salvar = null; // Variável para armazenar o bilhete encontrado
+                        BilheteUnico salvar = null;
                         for (BilheteUnico bilhete : bilhetes) {
                             if (codigoBilhete.equals(bilhete.getCodigo())) {
                                 salvar = bilhete;
-                                break; // Encerra o loop assim que encontrar um bilhete correspondente
+                                break;
                             }
                         }
-                        if (salvar == null) { // Verifica se um bilhete foi encontrado
+                        if (salvar == null) {
                             System.out.println("Bilhete não encontrado.");
                         } else if (salvar instanceof BilheteUnicoEstudante){
                             salvar.recargaBilhete();
@@ -60,17 +60,17 @@ public class Usuario {
 
                     case 4:
                         System.out.println("--Pagar Passagem--");
-                        input.nextLine(); // Limpa o buffer do Scanner
+                        input.nextLine();
                         System.out.println("Informe o codigo de seu bilhete");
                         String codigoBilhete2 = input.nextLine();
-                        salvar = null; // Reinicia a variável salvar
+                        salvar = null;
                         for (BilheteUnico bilhete : bilhetes) {
                             if (codigoBilhete2.equals(bilhete.getCodigo())) {
                                 salvar = bilhete;
-                                break; // Encerra o loop assim que encontrar um bilhete correspondente
+                                break;
                             }
                         }
-                        if (salvar == null) { // Verifica se um bilhete foi encontrado
+                        if (salvar == null) {
                             System.out.println("Bilhete não encontrado.");
                         } else if (salvar instanceof BilheteUnicoEstudante){
                             salvar.pagarPassagem();
@@ -91,7 +91,7 @@ public class Usuario {
                         String salvarCpf = input.nextLine();
                         for (BilheteUnico bilhete : bilhetes) {
                             if (salvarCpf.equals(bilhete.getUsuario().getCPF())) {
-                                salvar = bilhete;
+                                guardar = bilhete;
                                 System.out.println("O Bilhete e: " + bilhete);
                             }else {
                                 System.out.println("CPF não localizado");
@@ -124,6 +124,8 @@ public class Usuario {
 
 
     static BilheteUnico salvar;
+
+    static BilheteUnico guardar;
     static ArrayList<Menu> usuarios = new ArrayList<Menu>();
     static ArrayList<BilheteUnico> bilhetes = new ArrayList<BilheteUnico>();
     private static void CadastrarUsuario(){
